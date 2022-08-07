@@ -34,7 +34,7 @@ def blad():
     wn.exitonclick()
     exit()
 
-pozycjalosowanie = "None"
+pozycjalosowanie = "0"
 answer = 1
 losowanie = ["None", "None"]
 losowanie.pop()
@@ -53,16 +53,19 @@ if answer0 == "liczbę" or answer0 == "liczbe" or answer0 == "1":
         answerile = t.textinput("", "Ile liczb chcesz wylosować?")
         if int(answerile) <= int(answerliczba2) - int(answerliczba1):
             for i in range(0, int(answerile)):
+
                 if int(answerile) > 10:
-                    t.write(random.randint(int(answerliczba1), int(answerliczba2)), move=False, align='center',font=("Comic Sans MS", 10, "bold", "italic"))
-                else:
-                    t.write(random.randint(int(answerliczba1), int(answerliczba2)), move=False, align='center',font=("Comic Sans MS", 30, "bold", "italic"))
                     t.up()
-                    t.goto(0,298)
+                    t.goto(0, 268 - int(pozycjalosowanie))
                     t.down()
-            else:
-                t.write(random.randint(int(answerliczba1), int(answerliczba2)), move=False, align='center',
-                        font=("Comic Sans MS", 50, "bold", "italic"))
+                    t.write(random.randint(int(answerliczba1), int(answerliczba2)), move=False, align='center',font=("Comic Sans MS", 10, "bold", "italic"))
+                    pozycjalosowanie = int(pozycjalosowanie) + 14
+                else:
+                    t.up()
+                    t.goto(0,240-int(pozycjalosowanie))
+                    t.down()
+                    t.write(random.randint(int(answerliczba1), int(answerliczba2)), move=False, align='center',font=("Comic Sans MS", 30, "bold", "italic"))
+                    pozycjalosowanie = int(pozycjalosowanie) + 40
 elif answer0 == "2" or answer0 == "dowolny parametr" or answer0 == "dowolny" or answer0 == "parametr":
 
     answer = (turtle.textinput("Wybrano niestandardowe losowanie.",
